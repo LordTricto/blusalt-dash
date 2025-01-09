@@ -63,49 +63,26 @@ function App() {
                                 </div>
                                 <div className="flex w-full flex-col gap-4 xl:flex-row">
                                     <div className="flex max-h-[330px] w-full flex-col gap-4 rounded-2xl bg-light p-6">
-                                        <div className="flex w-full items-center justify-start gap-4">
-                                            <div className="flex items-center justify-start gap-4 border-r border-black border-opacity-20 pr-4">
-                                                <h6 className="text-sm font-semibold text-black">Total Users</h6>
-                                                <p className="text-sm text-black text-opacity-40">Total Projects</p>
-                                                <p className="text-sm text-black text-opacity-40">Operating Status</p>
+                                        <div className="flex w-full items-center justify-start gap-4 overflow-x-auto">
+                                            <div className="flex w-max items-center justify-start gap-4 border-r border-black border-opacity-20 pr-4">
+                                                <h6 className="whitespace-nowrap text-sm font-semibold text-black">Total Users</h6>
+                                                <p className="whitespace-nowrap text-sm text-black text-opacity-40">Total Projects</p>
+                                                <p className="whitespace-nowrap text-sm text-black text-opacity-40">Operating Status</p>
                                             </div>
-                                            <div className="flex items-center justify-center gap-4">
+                                            <div className="flex w-max items-center justify-center gap-4">
                                                 <div className="flex items-center justify-center gap-1">
                                                     <div className="h-1.5 w-1.5 rounded-full bg-black"></div>
-                                                    <p className="text-xs text-black">This year</p>
+                                                    <p className="whitespace-nowrap text-xs text-black">This year</p>
                                                 </div>
                                                 <div className="flex items-center justify-center gap-1">
                                                     <div className="h-1.5 w-1.5 rounded-full bg-cyan-secondary"></div>
-                                                    <p className="text-xs text-black">Last year</p>
+                                                    <p className="whitespace-nowrap text-xs text-black">Last year</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        {/* svg graph */}
-                                        <div className="h-full w-full [&>canvas]:!h-full">
+                                        <div className="relative h-full w-full [&>canvas]:!h-full [&>canvas]:!max-h-[212px] [&>canvas]:!min-h-[160px] [&>canvas]:!w-full">
                                             <LineChart data={TotalUsers} />
                                         </div>
-                                        {/* <div className="w-full">
-                                            <div className="flex h-full w-full flex-row gap-4">
-                                                <div className="mb-16 flex flex-col items-center justify-between">
-                                                    <p className="text-xs text-black text-opacity-40">30k</p>
-                                                    <p className="text-xs text-black text-opacity-40">20k</p>
-                                                    <p className="text-xs text-black text-opacity-40">10k</p>
-                                                    <p className="text-xs text-black text-opacity-40">0</p>
-                                                </div>
-                                                <div className="flex w-full flex-col justify-between">
-                                                    <img src={GraphImg} className="w-full max-w-[540px]" />
-                                                    <div className="flex w-full items-center justify-between gap-6 pl-6 pr-4">
-                                                        <p className="text-xs text-black text-opacity-40">Jan</p>
-                                                        <p className="text-xs text-black text-opacity-40">Feb</p>
-                                                        <p className="text-xs text-black text-opacity-40">Mar</p>
-                                                        <p className="text-xs text-black text-opacity-40">Apr</p>
-                                                        <p className="text-xs text-black text-opacity-40">May</p>
-                                                        <p className="text-xs text-black text-opacity-40">Jun</p>
-                                                        <p className="text-xs text-black text-opacity-40">Jul</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> */}
                                     </div>
                                     <div className="flex w-full flex-col gap-4 rounded-2xl bg-light p-6 xl:w-fit">
                                         <h6 className="text-sm font-semibold text-black">Traffic by Website</h6>
@@ -122,7 +99,7 @@ function App() {
                                 <div className="grid h-full w-full grid-cols-1 gap-4 md:grid-cols-2">
                                     <div className="flex w-full flex-col gap-4 rounded-2xl bg-light p-6">
                                         <h6 className="text-sm font-semibold text-black">Reports Generated</h6>
-                                        <div className="h-full w-full [&>canvas]:!h-full">
+                                        <div className="relative h-full w-full [&>canvas]:!h-full">
                                             <BarChartCanvas data={ReportsGenerated} />
                                         </div>
                                     </div>
@@ -131,12 +108,12 @@ function App() {
                                             <h6 className="text-sm font-semibold text-black">Traffic by Location</h6>
                                         </div>
                                         <div className="flex w-full flex-grow flex-col items-center justify-between gap-10 p-5 sm:flex-row">
-                                            <div className="h-full w-full max-w-40 [&>canvas]:!w-full">
+                                            <div className="relative h-full w-full max-w-40 [&>canvas]:!w-full">
                                                 <DonutChart data={TrafficByLocation} />
                                             </div>
                                             <div className="flex w-full max-w-64 flex-col gap-3">
-                                                {TrafficByLocation.map((_) => (
-                                                    <div className="flex h-[22px] w-full items-center justify-between gap-4">
+                                                {TrafficByLocation.map((_, _index) => (
+                                                    <div className="flex h-[22px] w-full items-center justify-between gap-4" key={_index}>
                                                         <div className="flex items-center justify-center gap-1">
                                                             <div className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: _.color }}></div>
                                                             <p className="text-xs text-black">{_.title}</p>
@@ -150,7 +127,7 @@ function App() {
                                 </div>
                                 <div className="flex max-h-[280px] min-h-[280px] w-full flex-grow flex-col gap-4 rounded-2xl bg-light p-6">
                                     <h6 className="text-sm font-semibold text-black">Marketing & SEO</h6>
-                                    <div className="h-full w-full [&>canvas]:!h-full [&>canvas]:!max-h-[212px] [&>canvas]:!min-h-[212px] [&>canvas]:!w-full">
+                                    <div className="relative h-full w-full [&>canvas]:!h-full [&>canvas]:!max-h-[212px] [&>canvas]:!min-h-[212px] [&>canvas]:!w-full">
                                         <BarChartCanvas data={MarketingSEO} />
                                     </div>
                                 </div>
@@ -165,30 +142,3 @@ function App() {
 }
 
 export default App;
-
-{
-    /* <div className="flex w-full items-center justify-between gap-6 pl-6 pr-4">
-                                                <p className="text-xs text-black text-opacity-40">Jan</p>
-                                                <p className="text-xs text-black text-opacity-40">Feb</p>
-                                                <p className="text-xs text-black text-opacity-40">Mar</p>
-                                                <p className="text-xs text-black text-opacity-40">Apr</p>
-                                                <p className="text-xs text-black text-opacity-40">May</p>
-                                                <p className="text-xs text-black text-opacity-40">Jun</p>
-                                                <p className="text-xs text-black text-opacity-40">Jul</p>
-                                                <p className="text-xs text-black text-opacity-40">Aug</p>
-                                                <p className="text-xs text-black text-opacity-40">Sep</p>
-                                                <p className="text-xs text-black text-opacity-40">Oct</p>
-                                                <p className="text-xs text-black text-opacity-40">Nov</p>
-                                                <p className="text-xs text-black text-opacity-40">Dec</p>
-                                            </div> */
-}
-{
-    /* <div className="flex w-full items-center justify-between gap-6 pl-4">
-                                                    <p className="text-xs text-black text-opacity-40">Linux</p>
-                                                    <p className="text-xs text-black text-opacity-40">Mac</p>
-                                                    <p className="text-xs text-black text-opacity-40">IOS</p>
-                                                    <p className="text-xs text-black text-opacity-40">Windows</p>
-                                                    <p className="text-xs text-black text-opacity-40">Android</p>
-                                                    <p className="text-xs text-black text-opacity-40">Other</p>
-                                                </div> */
-}
