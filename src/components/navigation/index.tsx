@@ -11,18 +11,21 @@ import SideMenu from "../side-menu";
 import TasksIcon from "../../assets/side-menu/tasks-icon.svg";
 import UserAvatar from "../../assets/side-menu/user-avatar.svg";
 import UsersIcon from "../../assets/side-menu/users-icon.svg";
+import useDimension from "../../hooks/useDimension";
 
 interface Props {
     isOpen?: boolean;
 }
 
 function Navigation(props: Props) {
+    const { width } = useDimension();
+
     return (
         <>
             <aside
                 className={
                     "fixed z-50 flex h-screen max-h-screen w-full max-w-56 flex-grow flex-col items-center justify-start gap-8 border-r border-grey-tertiary bg-white px-5 py-8 duration-150 lg:relative " +
-                    `${props.isOpen ? "" : "-translate-x-full lg:translate-x-[unset]"}`
+                    `${props.isOpen && width < 1025 ? "" : "-translate-x-full lg:translate-x-[unset]"}`
                 }
             >
                 <div className="flex w-full items-center justify-center">

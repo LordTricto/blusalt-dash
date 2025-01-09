@@ -14,9 +14,12 @@ import NotificationBar from "./components/notifications";
 import SearchBar from "./components/searchbar";
 import StatLevel from "./components/level";
 import SummaryCard from "./components/summary-card";
+import useDimension from "./hooks/useDimension";
 import { useState } from "react";
 
 function App() {
+    const { width } = useDimension();
+
     const [isMobileViewNavOpen, setIsMobileViewNavOpen] = useState(false);
     const [isNotificationOpen, setIsNotificationOpen] = useState(false);
 
@@ -34,14 +37,14 @@ function App() {
                                     <img src={DarkMode} alt="dark mode" />
                                     <img src={History} alt="history" />
                                     <button
-                                        className="cursor-pointer outline-none focus:outline-none"
-                                        onClick={() => setIsNotificationOpen((prev) => !prev)}
+                                        className={"outline-none focus:outline-none " + `${width < 1025 ? "cursor-pointer" : "cursor-default"}`}
+                                        onClick={() => width < 1025 && setIsNotificationOpen((prev) => !prev)}
                                     >
                                         <img src={Notification} alt="notification" />
                                     </button>
                                     <button
-                                        className="cursor-pointer outline-none focus:outline-none"
-                                        onClick={() => setIsMobileViewNavOpen((prev) => !prev)}
+                                        className={"outline-none focus:outline-none " + `${width < 1025 ? "cursor-pointer" : "cursor-default"}`}
+                                        onClick={() => width < 1025 && setIsMobileViewNavOpen((prev) => !prev)}
                                     >
                                         <img src={Drawer} alt="drawer" />
                                     </button>
