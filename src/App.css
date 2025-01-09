@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+@layer base {
+    @font-face {
+        font-family: "HelveticaNeue";
+        src:
+            local("HelveticaNeue-Light"),
+            url(./assets/fonts/HelveticaNeue-Light.woff2) format("woff2");
+        font-weight: 100;
+    }
+    @font-face {
+        font-family: "HelveticaNeue";
+        src:
+            local("HelveticaNeue-Light"),
+            url(./assets/fonts/HelveticaNeue-Light.woff2) format("woff2");
+        font-weight: 200;
+    }
+    @font-face {
+        font-family: "HelveticaNeue";
+        src:
+            local("HelveticaNeue-Light"),
+            url(./assets/fonts/HelveticaNeue-Light.woff2) format("woff2");
+        font-weight: 300;
+    }
+    @font-face {
+        font-family: "HelveticaNeue";
+        src:
+            local("HelveticaNeue"),
+            url(./assets/fonts/HelveticaNeue.woff2) format("woff2");
+        font-weight: 400;
+    }
+    @font-face {
+        font-family: "HelveticaNeue";
+        src:
+            local("HelveticaNeue-Medium"),
+            url(./assets/fonts/HelveticaNeue-Medium.woff2) format("woff2");
+        font-weight: 500;
+    }
+    @font-face {
+        font-family: "HelveticaNeue";
+        src:
+            local("HelveticaNeue-Medium"),
+            url(./assets/fonts/HelveticaNeue-Medium.woff2) format("woff2");
+        font-weight: 600;
+    }
+    @font-face {
+        font-family: "HelveticaNeue";
+        src:
+            local("HelveticaNeue-Bold"),
+            url(./assets/fonts/HelveticaNeue-Bold.woff2) format("woff2");
+        font-weight: 700;
+    }
+    @font-face {
+        font-family: "HelveticaNeue";
+        src:
+            local("HelveticaNeue-Bold"),
+            url(./assets/fonts/HelveticaNeue-Bold.woff2) format("woff2");
+        font-weight: 800;
+    }
+    @font-face {
+        font-family: "HelveticaNeue";
+        src:
+            local("HelveticaNeue-Bold"),
+            url(./assets/fonts/HelveticaNeue-Bold.woff2) format("woff2");
+        font-weight: 900;
+    }
+} */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    /* font-family: "HelveticaNeue"; */
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
